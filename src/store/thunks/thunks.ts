@@ -26,7 +26,7 @@ export const exitNote = (page: string): AppThunk => {
 	}
 }
 
-export const moveToTrash = () : AppThunk => {
+export const moveToTrash = (): AppThunk => {
 	return (dispatch, getState) => {
 		if (getState().isNoteNew) {
 			dispatch(noteActions.createOrTrash("trash"));
@@ -42,7 +42,7 @@ export const moveToTrash = () : AppThunk => {
 }
 
 export const restoreFromTrash = (): AppThunk => {
-    return dispatch => {
+    return (dispatch) => {
 	    dispatch(noteActions.restoreNote());
 	    dispatch(noteActions.resetNote());
 	    dispatch(noteActions.noteDialogIsVisible(false));
@@ -50,8 +50,10 @@ export const restoreFromTrash = (): AppThunk => {
     }
 }
 
-// export const emptyTrash = (): AppThunk => {
-//     return dispatch => {
-// 	    dispatch(noteActions.deleteNotes("delete-all"));
-//     }
-// }
+export const deleteFromTrash = (amount: string): AppThunk => {
+	return (dispatch) => {
+		dispatch(noteActions.deleteNotesForever(amount));
+		dispatch(noteActions.resetNote());
+		dispatch(noteActions.noteDialogIsVisible(false));
+	}
+}

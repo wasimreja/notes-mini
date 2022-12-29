@@ -15,6 +15,7 @@ export type InitialState = {
 	isNoteEmpty: boolean,
 	isNoteNew: boolean,
 	isFormVisible: boolean,
+	isThemeGradient: boolean,
 	noteId: string,
 	noteTitle: string,
 	noteContent: string,
@@ -29,7 +30,7 @@ export type NavbarProps = {
 	pageLabel: React.ReactNode,
 	notesEmpty: boolean,
 	onShowDeleteConfirm: (value: boolean) => void,
-	onSetDeleteAmount: (value: string) => void
+	onSyncDeleteAmount: (value: string) => void
 };
 
 export type PageProps = {
@@ -44,7 +45,7 @@ export type PageProps = {
 export type NoteDialogProps = {
 	activePage: string,
 	onShowDeleteConfirm: (value: boolean) => void,
-	onSetDeleteAmount: (value: string) => void
+	onSyncDeleteAmount: (value: string) => void
 };
 
 export type ButtonPanelProps = {
@@ -53,7 +54,7 @@ export type ButtonPanelProps = {
 	onUpdateThemeOptions: (value: {fontSelect: boolean, palette: boolean}) => void,
 	onUploadImage: () => void,
 	onShowDeleteConfirm: (value: boolean) => void,
-	onSetDeleteAmount: (value: string) => void
+	onSyncDeleteAmount: (value: string) => void
 };
 
 export type ConfirmDeleteProps = {
